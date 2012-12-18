@@ -40,7 +40,7 @@
 			<script>
 				function sendAnnounce() {
 					var milliseconds = new Date().getTime();
-					document.getElementById("dmEvent").innerHTML="Last announce timestamp: " + milliseconds;
+					document.getElementById("dmEvent").innerHTML="timestamp: " + milliseconds;
 					setTimeout(sendAnnounce, 5000);
 				}
 
@@ -51,7 +51,7 @@
 				<tbody>
 					<tr>
 						<td>Event Supported</td>
-						<td id="dmEvent">Not supported on your device or browser.  Sorry.</td>
+						<td id="dmEvent">timestamp: <script>new Date().getTime();</script></td>
 					</tr>
 					<tr>
 						<td>accelerationIncludingGravity</td>
