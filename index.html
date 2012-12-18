@@ -36,22 +36,53 @@
 		<noscript>&lt;meta HTTP-EQUIV="refresh" content="0;url='http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html?ModPagespeed=noscript'" /&gt;&lt;style&gt;&lt;!--table,div,span,font,p{display:none} --&gt;&lt;/style&gt;&lt;div style="display:block"&gt;Please click &lt;a href="http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html?ModPagespeed=noscript"&gt;here&lt;/a&gt; if you are not redirected within a few seconds.&lt;/div&gt;
 		</noscript>
 	
-		<div class="main">
-			<script>
-				function sendAnnounce() {
-					var milliseconds = new Date().getTime();
-					document.getElementById("dmEvent").innerHTML="timestamp: " + milliseconds;
-					setTimeout(sendAnnounce, 5000);
-				}
+        <script type="text/javascript">             
+            var x = new Date().getTime();
+			
+			/*device ID aka 
+				setSenderSession (std::string value)
+				setSenderIpPort (std::string value)
+				setRecipientSession (std::string value)
+				setRecipientIpPort (std::string value)
+				setMessageType (int value)
+				setSenderType (std::string value)
+				setSenderName (std::string value)
+			*/
+			
+            function update()
+            {
+                //draw();
+				x = new Date().getTime();
+				testoUpdate();
+               	myToggle = setTimeout(update, 1000);
+            };
+			
+            function testoUpdate()
+            {
+                var testo = document.getElementById('timestamp');
+				testo.innerHTML = "timestamp: " + x;
+				//hack xpAnnounce using protocol format
+            };
+            function stop()
+            {
+                clearTimeout(myToggle);
+            };
+            window.onload = function() 
+            {                    
+                update();
+            };
+        </script>
 
-				sendAnnounce();
-			</script>
+
+		<p id="timestamp">trying to implement announce</p>
+	
+		<div class="main">
 			<h2>Device Motion</h2>
 			<table>
 				<tbody>
 					<tr>
 						<td>Event Supported</td>
-						<td id="dmEvent">timestamp: <script>new Date().getTime();</script></td>
+						<td id="dmEvent"></td>
 					</tr>
 					<tr>
 						<td>accelerationIncludingGravity</td>
@@ -206,74 +237,76 @@
 									D.lazyLoadInit=D.t;
 								})();
 
-								pagespeed.lazyLoadInit(false, "//1-ps.googleusercontent.com/h/www.gstatic.com/psa/static/1.gif");
-							</script>
-							<img id="imgLogo" class="logo" width="512" height="512" src="http://xplaces.crs4.it/images/labomclogo.png">
-						</div>
-						<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script>
-						<script type="text/javascript">
-							init2();
-							function init(){
-								if(window.DeviceMotionEvent){
-									console.log("DeviceMotionEvent supported");
-								}else if('listenForDeviceMovement'in window){
-									console.log("DeviceMotionEvent supported [listenForDeviceMovement]");
-								}
-							}
-							function init2(){
-								if((window.DeviceMotionEvent)||('listenForDeviceMovement'in window)){
-									window.addEventListener('devicemotion',deviceMotionHandler3,false);
-								}else{
-									document.getElementById("dmEvent").innerHTML="Not supported on your device or browser.  Sorry."
-								}
-							}
-							function deviceMotionHandler3(eventData){
-								var acceleration=eventData.accelerationIncludingGravity;
-								var rawAcceleration="["+Math.round(acceleration.x)+", "+Math.round(acceleration.y)+", "+Math.round(acceleration.z)+"]";
-								var facingUp=-1;
-								if(acceleration.z>0){
-									facingUp=+1;
-								}
-								var tiltLR=Math.round(((acceleration.x)/9.81)*-90);
-								var tiltFB=Math.round(((acceleration.y+9.81)/9.81)*90*facingUp);
-								document.getElementById("moAccel").innerHTML=rawAcceleration;
-								document.getElementById("moCalcTiltLR").innerHTML=tiltLR;
-								document.getElementById("moCalcTiltFB").innerHTML=tiltFB;
-								var rotation="rotate("+tiltLR+"deg) rotate3d(1,0,0, "+(tiltFB)+"deg)";
-								document.getElementById("imgLogo").style.webkitTransform=rotation
-							}
-						</script>
-						<script>
-							(function(){
-								var c=window,e="",f="&b_cdr=",k="&b_cihrl=",l="&b_cii=",n="&b_cilrl=",p="&b_ncdl=",q="&b_ncl=",r="&exptid=",s="&ft=",t="&hft=",u="&htmlAt=",v="&ifr=0",w="&ifr=1",x="&nrp=",y="&r",z="&url=",A="=",B="beforeunload",C="load",D="load:",E="on",F="unload:";
-								c.pagespeed=c.pagespeed||{};
-								var G=c.pagespeed,H=function(a,b,d,g,h,j){
-									this.f=a;
-									this.a=b;
-									this.c=d;
-									this.d=g;
-									this.b=h;
-									this.g=j;
-									this.h=e
-								};
-								G.beaconUrl=G.h;
-								H.prototype.e=function(){
-									var a=this.f,b=c.mod_pagespeed_start,d=Number(new Date)-b,a=a+(this.a==C?D:F),a=a+d+(y+this.a+A);
-									c.performance?(d=c.performance.timing,b=d.navigationStart,a+=d.loadEventStart-b):a+=d;
-									this.a==B&&c.mod_pagespeed_loaded||(a+=c.parent!=c?w:v,this.a==C&&(c.mod_pagespeed_loaded=!0,(d=c.mod_pagespeed_num_resources_prefetched)&&(a+=x+d),(d=c.mod_pagespeed_prefetch_start)&&(a+=u+(b-d))),G.panelLoader&&(b=G.panelLoader.getCsiTimings().time,a+=f+b.CRITICAL_DATA_RECEIVED+l+b.CRITICAL_IMAGES_INLINED+
-									n+b.CRITICAL_IMAGES_LOW_RES_LOADED+k+b.CRITICAL_IMAGES_HIGH_RES_LOADED+p+b.NON_CACHEABLE_DATA_LOADED+q+b.NON_CRITICAL_LOADED),this.c!=e&&(a+=t+this.c),this.d!=e&&(a+=s+this.d),this.b!=e&&(a+=r+this.b),a+=z+encodeURIComponent(this.g),G.beaconUrl=a,(new Image).src=a)
-								};
-								G.i=function(a,b,d,g,h,j){
-									var m=new H(a,b,d,g,h,j);
-									c.addEventListener?c.addEventListener(b,function(){
-										m.e()
-									},!1):c.attachEvent(E+b,function(){
-										m.e()
-									})
-								};
-								G.addInstrumentationInit=G.i;
-							})();
+				pagespeed.lazyLoadInit(false, "//1-ps.googleusercontent.com/h/www.gstatic.com/psa/static/1.gif");
+			</script>
+			<img id="imgLogo" class="logo" width="512" height="512" src="http://xplaces.crs4.it/images/labomclogo.png">
+		</div>
+	<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script>
+	<script type="text/javascript">
+		init2();
+		function init(){
+			if(window.DeviceMotionEvent){
+				console.log("DeviceMotionEvent supported");
+			}else if('listenForDeviceMovement'in window){
+				console.log("DeviceMotionEvent supported [listenForDeviceMovement]");
+			}
+		}
+		function init2(){
+			if((window.DeviceMotionEvent)||('listenForDeviceMovement'in window)){
+				window.addEventListener('devicemotion',deviceMotionHandler3,false);
+				document.getElementById("dmEvent").innerHTML="Handling accelerometer data."
+			}else{
+				document.getElementById("dmEvent").innerHTML="Not supported on your device or browser.  Sorry."
+			}
+		}
+		function deviceMotionHandler3(eventData){
+			var acceleration=eventData.accelerationIncludingGravity;
+			var rawAcceleration="["+Math.round(acceleration.x)+", "+Math.round(acceleration.y)+", "+Math.round(acceleration.z)+"]";
+			var facingUp=-1;
+			if(acceleration.z>0){
+				facingUp=+1;
+			}
+			var tiltLR=Math.round(((acceleration.x)/9.81)*-90);
+			var tiltFB=Math.round(((acceleration.y+9.81)/9.81)*90*facingUp);
+			document.getElementById("moAccel").innerHTML=rawAcceleration;
+			document.getElementById("moCalcTiltLR").innerHTML=tiltLR;
+			document.getElementById("moCalcTiltFB").innerHTML=tiltFB;
+			var rotation="rotate("+tiltLR+"deg) rotate3d(1,0,0, "+(tiltFB)+"deg)";
+			document.getElementById("imgLogo").style.webkitTransform=rotation
+		}
+	</script>
+	<script>
+		(function(){
+			var c=window,e="",f="&b_cdr=",k="&b_cihrl=",l="&b_cii=",n="&b_cilrl=",p="&b_ncdl=",q="&b_ncl=",r="&exptid=",s="&ft=",t="&hft=",u="&htmlAt=",v="&ifr=0",w="&ifr=1",x="&nrp=",y="&r",z="&url=",A="=",B="beforeunload",C="load",D="load:",E="on",F="unload:";
+			c.pagespeed=c.pagespeed||{};
+			var G=c.pagespeed,H=function(a,b,d,g,h,j){
+				this.f=a;
+				this.a=b;
+				this.c=d;
+				this.d=g;
+				this.b=h;
+				this.g=j;
+				this.h=e
+			};
+			G.beaconUrl=G.h;
+			H.prototype.e=function(){
+				var a=this.f,b=c.mod_pagespeed_start,d=Number(new Date)-b,a=a+(this.a==C?D:F),a=a+d+(y+this.a+A);
+				c.performance?(d=c.performance.timing,b=d.navigationStart,a+=d.loadEventStart-b):a+=d;
+				this.a==B&&c.mod_pagespeed_loaded||(a+=c.parent!=c?w:v,this.a==C&&(c.mod_pagespeed_loaded=!0,(d=c.mod_pagespeed_num_resources_prefetched)&&(a+=x+d),(d=c.mod_pagespeed_prefetch_start)&&(a+=u+(b-d))),G.panelLoader&&(b=G.panelLoader.getCsiTimings().time,a+=f+b.CRITICAL_DATA_RECEIVED+l+b.CRITICAL_IMAGES_INLINED+
+				n+b.CRITICAL_IMAGES_LOW_RES_LOADED+k+b.CRITICAL_IMAGES_HIGH_RES_LOADED+p+b.NON_CACHEABLE_DATA_LOADED+q+b.NON_CRITICAL_LOADED),this.c!=e&&(a+=t+this.c),this.d!=e&&(a+=s+this.d),this.b!=e&&(a+=r+this.b),a+=z+encodeURIComponent(this.g),G.beaconUrl=a,(new Image).src=a)
+			};
+			G.i=function(a,b,d,g,h,j){
+				var m=new H(a,b,d,g,h,j);
+				c.addEventListener?c.addEventListener(b,function(){
+					m.e()
+				},!1):c.attachEvent(E+b,function(){
+					m.e()
+				})
+			};
+			G.addInstrumentationInit=G.i;
+		})();
 
-							pagespeed.addInstrumentationInit('http://1-ps.googleusercontent.com/beacon?org=66_1_jt&ets=', 'load', '', '', '', 'http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html');
-						</script>
-					</body></html>
+		pagespeed.addInstrumentationInit('http://1-ps.googleusercontent.com/beacon?org=66_1_jt&ets=', 'load', '', '', '', 'http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html');
+	</script>
+</body>
+</html>
