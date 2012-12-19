@@ -1,45 +1,312 @@
-<html lang="en"><head><script type="text/javascript">window.mod_pagespeed_start = Number(new Date());</script>
-<meta charset="UTF-8">
-<title></title>
-<style type="text/css">body{font-family:sans-serif}.main{border:1px solid #000;box-shadow:10px 10px 5px #888;border-radius:12px;padding:20px;background-color:#ddd;margin:25px;width:450px;margin-left:auto;margin-right:auto}.logo{width:275px;margin-left:auto;margin-right:auto;display:block;padding:15px}.container{-webkit-perspective:300;perspective:300}</style>
-<link rel="dns-prefetch" href="//www.html5rocks.com"></head>
-<body><noscript>&lt;meta HTTP-EQUIV="refresh" content="0;url='http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html?ModPagespeed=noscript'" /&gt;&lt;style&gt;&lt;!--table,div,span,font,p{display:none} --&gt;&lt;/style&gt;&lt;div style="display:block"&gt;Please click &lt;a href="http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html?ModPagespeed=noscript"&gt;here&lt;/a&gt; if you are not redirected within a few seconds.&lt;/div&gt;</noscript>
-<div class="main">
-<h2>Device Motion</h2>
-<table>
-<tbody><tr>
-<td>Event Supported</td><td id="dmEvent">Not supported on your device or browser.  Sorry.</td>
-</tr>
-<tr>
-<td>accelerationIncludingGravity</td><td id="moAccel"></td>
-</tr>
-<tr>
-<td>Calculated Left-Right Tilt</td><td id="moCalcTiltLR"></td>
-</tr>
-<tr>
-<td>Calculated Front-Back Tilt</td><td id="moCalcTiltFB"></td>
-</tr>
-</tbody></table>
-</div>
-<div class="container" style="-webkit-perspective: 300; perspective: 300;">
-<script>(function(){var d=null,e=window,f=document,g="documentElement",h="scrollTop",k="prototype",l="body",m="getAttribute",n="",p="1",q="data",r="img",s="load",t="number",u="on",v="onload",w="pagespeed_lazy_position",x="pagespeed_lazy_replaced_functions",y="pagespeed_lazy_src",z="position",A="relative",B="scroll",C="src";e.pagespeed=e.pagespeed||{};var D=e.pagespeed,E=function(a){this.a=[];this.i=0;this.b=!1;this.o=a;this.c=d;this.g=0;this.h=200;this.f=!1};
-E[k].s=function(){var a=0;typeof e.pageYOffset==t?a=e.pageYOffset:f[l]&&f[l][h]?a=f[l][h]:f[g]&&f[g][h]&&(a=f[g][h]);var b=e.innerHeight||f[g].clientHeight||f[l].clientHeight;return{top:a,bottom:a+b,height:b}};E[k].n=function(a){var b=a[m](w);if(b)return parseInt(b,0);var b=a.offsetTop,c=a.offsetParent;c&&(b+=this.n(c));b=Math.max(b,0);a.setAttribute(w,b);return b};E[k].r=function(a){var b=this.n(a);return{top:b,bottom:b+a.offsetHeight}};
-E[k].q=function(a,b){if(a.currentStyle)return a.currentStyle[b];if(f.defaultView&&f.defaultView.getComputedStyle){var c=f.defaultView.getComputedStyle(a,d);if(c)return c.getPropertyValue(b)}return a.style&&a.style[b]?a.style[b]:n};E[k].p=function(a){if(this.q(a,z)==A)return!0;if(!this.f&&(0==a.offsetHeight||0==a.offsetWidth))return!1;var b=this.s(),c=a.getBoundingClientRect();c?(a=c.top-b.height,b=c.bottom):(c=this.r(a),a=c.top-b.bottom,b=c.bottom-b.top);return a<=this.i&&0<=b+this.i};
-E[k].m=function(a){this.l(a);var b=this;e.setTimeout(function(){var c=a[m](y);if(c!=d)if((b.b||b.p(a))&&a.src.indexOf(-1!=b.o)){var j=a.parentNode,F=a.nextSibling;j&&j.removeChild(a);a.getAttribute=a.j;a.removeAttribute(v);a.removeAttribute(y);a.removeAttribute(x);j&&j.insertBefore(a,F);a.src=c}else b.a.push(a)},0)};E[k].loadIfVisible=E[k].m;E[k].u=function(){this.b=!0;this.d()};E[k].loadAllImages=E[k].u;E[k].d=function(){var a=this.a,b=a.length;this.a=[];for(var c=0;c<b;++c)this.m(a[c])};
-E[k].e=function(a,b){return a.a?a.a(b)!=d:a[m](b)!=d};E[k].v=function(){for(var a=f.getElementsByTagName(r),b=0;b<a.length;++b){var c=a[b];this.e(c,y)&&this.l(c)}};E[k].overrideAttributeFunctions=E[k].v;E[k].l=function(a){var b=this;this.e(a,x)||(a.j=a[m],a.getAttribute=function(a){a.toLowerCase()==C&&b.e(this,y)&&(a=y);return this.j(a)},a.setAttribute(x,p))};
-D.k=function(a,b,c){if(a.addEventListener)a.addEventListener(b,c,!1);else if(a.attachEvent)a.attachEvent(u+b,c);else{var j=a[u+b];a[u+b]=function(){c.call(this);j&&j.call(this)}}};D.t=function(a,b){var c=new E(b);D.lazyLoadImages=c;0!=b.indexOf(q)&&((new Image).src=b);D.k(e,s,function(){c.f=!0;e.setTimeout(function(){c.b=a;c.d()},200)});a||D.k(e,B,function(){if(!c.c){var a=c.h;(new Date).getTime()-c.g>c.h&&(a=0);c.c=e.setTimeout(function(){c.g=(new Date).getTime();c.d();c.c=d},a)}})};
-D.lazyLoadInit=D.t;})();
+<html lang="en">
+<head>
+	<script type="text/javascript">
+		window.mod_pagespeed_start = Number(new Date());
+	</script>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		body{
+			font-family:sans-serif
+		}
+		.main{
+			border:1px solid #000;
+			box-shadow:10px 10px 5px #888;border-radius:12px;
+			padding:20px;
+			background-color:#ddd;
+			margin:25px;
+			width:450px;
+			margin-left:auto;
+			margin-right:auto
+		}
+		.logo{
+			width:275px;
+			margin-left:auto;
+			margin-right:auto;
+			display:block;padding:15px
+		}
+		.container{
+			-webkit-perspective:300;
+			perspective:300
+		}
+	</style>
 
-pagespeed.lazyLoadInit(false, "//1-ps.googleusercontent.com/h/www.gstatic.com/psa/static/1.gif");
-</script><img id="imgLogo" class="logo" width="512" height="512" src="http://xplaces.crs4.it/images/labomclogo.png">
-</div>
-<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script><script type="text/javascript">init2();function init(){if(window.DeviceMotionEvent){console.log("DeviceMotionEvent supported");}else if('listenForDeviceMovement'in window){console.log("DeviceMotionEvent supported [listenForDeviceMovement]");}}
-function init2(){if((window.DeviceMotionEvent)||('listenForDeviceMovement'in window)){window.addEventListener('devicemotion',deviceMotionHandler3,false);}else{document.getElementById("dmEvent").innerHTML="Not supported on your device or browser.  Sorry."}}
-function deviceMotionHandler3(eventData){var acceleration=eventData.accelerationIncludingGravity;var rawAcceleration="["+Math.round(acceleration.x)+", "+Math.round(acceleration.y)+", "+Math.round(acceleration.z)+"]";var facingUp=-1;if(acceleration.z>0){facingUp=+1;}
-var tiltLR=Math.round(((acceleration.x)/9.81)*-90);var tiltFB=Math.round(((acceleration.y+9.81)/9.81)*90*facingUp);document.getElementById("moAccel").innerHTML=rawAcceleration;document.getElementById("moCalcTiltLR").innerHTML=tiltLR;document.getElementById("moCalcTiltFB").innerHTML=tiltFB;var rotation="rotate("+tiltLR+"deg) rotate3d(1,0,0, "+(tiltFB)+"deg)";document.getElementById("imgLogo").style.webkitTransform=rotation}</script>
-<script>(function(){var c=window,e="",f="&b_cdr=",k="&b_cihrl=",l="&b_cii=",n="&b_cilrl=",p="&b_ncdl=",q="&b_ncl=",r="&exptid=",s="&ft=",t="&hft=",u="&htmlAt=",v="&ifr=0",w="&ifr=1",x="&nrp=",y="&r",z="&url=",A="=",B="beforeunload",C="load",D="load:",E="on",F="unload:";c.pagespeed=c.pagespeed||{};var G=c.pagespeed,H=function(a,b,d,g,h,j){this.f=a;this.a=b;this.c=d;this.d=g;this.b=h;this.g=j;this.h=e};G.beaconUrl=G.h;
-H.prototype.e=function(){var a=this.f,b=c.mod_pagespeed_start,d=Number(new Date)-b,a=a+(this.a==C?D:F),a=a+d+(y+this.a+A);c.performance?(d=c.performance.timing,b=d.navigationStart,a+=d.loadEventStart-b):a+=d;this.a==B&&c.mod_pagespeed_loaded||(a+=c.parent!=c?w:v,this.a==C&&(c.mod_pagespeed_loaded=!0,(d=c.mod_pagespeed_num_resources_prefetched)&&(a+=x+d),(d=c.mod_pagespeed_prefetch_start)&&(a+=u+(b-d))),G.panelLoader&&(b=G.panelLoader.getCsiTimings().time,a+=f+b.CRITICAL_DATA_RECEIVED+l+b.CRITICAL_IMAGES_INLINED+
-n+b.CRITICAL_IMAGES_LOW_RES_LOADED+k+b.CRITICAL_IMAGES_HIGH_RES_LOADED+p+b.NON_CACHEABLE_DATA_LOADED+q+b.NON_CRITICAL_LOADED),this.c!=e&&(a+=t+this.c),this.d!=e&&(a+=s+this.d),this.b!=e&&(a+=r+this.b),a+=z+encodeURIComponent(this.g),G.beaconUrl=a,(new Image).src=a)};G.i=function(a,b,d,g,h,j){var m=new H(a,b,d,g,h,j);c.addEventListener?c.addEventListener(b,function(){m.e()},!1):c.attachEvent(E+b,function(){m.e()})};G.addInstrumentationInit=G.i;})();
+	<link rel="dns-prefetch" href="//www.html5rocks.com"></head>
+	<body>
+		<noscript>&lt;meta HTTP-EQUIV="refresh" content="0;url='http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html?ModPagespeed=noscript'" /&gt;&lt;style&gt;&lt;!--table,div,span,font,p{display:none} --&gt;&lt;/style&gt;&lt;div style="display:block"&gt;Please click &lt;a href="http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html?ModPagespeed=noscript"&gt;here&lt;/a&gt; if you are not redirected within a few seconds.&lt;/div&gt;
+		</noscript>
+	
+        <script type="text/javascript">             
+            var x = new Date().getTime();
+			
+			/*device ID aka 
+				setSenderSession (std::string value)
+				setSenderIpPort (std::string value)
+				setRecipientSession (std::string value)
+				setRecipientIpPort (std::string value)
+				setMessageType (int value)
+				setSenderType (std::string value)
+				setSenderName (std::string value)
+			*/
+			
+            function update()
+            {
+                //draw();
+				x = new Date().getTime();
+				testoUpdate();
+               	myToggle = setTimeout(update, 1000);
+            };
+			
+            function testoUpdate()
+            {
+                var testo = document.getElementById('timestamp');
+				testo.innerHTML = "timestamp: " + x;
+				//hack xpAnnounce using protocol format
+            };
+            function stop()
+            {
+                clearTimeout(myToggle);
+            };
+            window.onload = function() 
+            {                    
+                update();
+            };
+        </script>
 
-pagespeed.addInstrumentationInit('http://1-ps.googleusercontent.com/beacon?org=66_1_jt&ets=', 'load', '', '', '', 'http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html');</script>
-</body></html>
+
+		<p id="timestamp">trying to implement announce</p>
+	
+		<div class="main">
+			<h2>Device Motion</h2>
+			<table>
+				<tbody>
+					<tr>
+						<td>Event Supported</td>
+						<td id="dmEvent"></td>
+					</tr>
+					<tr>
+						<td>accelerationIncludingGravity</td>
+						<td id="moAccel"></td>
+					</tr>
+					<tr>
+						<td>Calculated Left-Right Tilt</td>
+						<td id="moCalcTiltLR"></td>
+					</tr>
+					<tr>
+						<td>Calculated Front-Back Tilt</td>
+						<td id="moCalcTiltFB"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="container" style="-webkit-perspective: 300; perspective: 300;">
+			<script>
+				(function(){
+					var d=null,e=window,f=document,g="documentElement",h="scrollTop",k="prototype",l="body",m="getAttribute",n="",p="1",q="data",r="img",s="load",t="number",u="on",v="onload",w="pagespeed_lazy_position",x="pagespeed_lazy_replaced_functions",y="pagespeed_lazy_src",z="position",A="relative",B="scroll",C="src";
+					e.pagespeed=e.pagespeed||{};
+					var D=e.pagespeed,E=function(a){
+						this.a=[];
+						this.i=0;
+						this.b=!1;
+						this.o=a;
+						this.c=d;
+						this.g=0;
+						this.h=200;
+						this.f=!1
+					};
+	
+					E[k].s=function(){
+						var a=0;
+						typeof e.pageYOffset==t?a=e.pageYOffset:f[l]&&f[l][h]?a=f[l][h]:f[g]&&f[g][h]&&(a=f[g][h]);
+						var b=e.innerHeight||f[g].clientHeight||f[l].clientHeight;
+						return{top:a,bottom:a+b,height:b}
+					};
+
+					E[k].n=function(a){
+						var b=a[m](w);
+						if(b)
+						return parseInt(b,0);
+						var b=a.offsetTop,c=a.offsetParent;
+						c&&(b+=this.n(c));
+						b=Math.max(b,0);
+						a.setAttribute(w,b);
+						return b
+					};
+
+					E[k].r=function(a){
+						var b=this.n(a);
+						return{top:b,bottom:b+a.offsetHeight}
+					};
+
+					E[k].q=function(a,b){
+						if(a.currentStyle)
+						return a.currentStyle[b];
+						if(f.defaultView&&f.defaultView.getComputedStyle){
+							var c=f.defaultView.getComputedStyle(a,d);
+							if(c)return c.getPropertyValue(b)
+						}
+						return a.style&&a.style[b]?a.style[b]:n
+					};
+
+					E[k].p=function(a){
+						if(this.q(a,z)==A)
+						return!0;
+						if(!this.f&&(0==a.offsetHeight||0==a.offsetWidth))
+						return!1;
+						var b=this.s(),c=a.getBoundingClientRect();
+						c?(a=c.top-b.height,b=c.bottom):(c=this.r(a),a=c.top-b.bottom,b=c.bottom-b.top);
+						return a<=this.i&&0<=b+this.i
+					};
+
+					E[k].m=function(a){
+						this.l(a);
+						var b=this;
+						e.setTimeout(
+						function(){
+							var c=a[m](y);
+							if(c!=d)
+							if((b.b||b.p(a))&&a.src.indexOf(-1!=b.o)){
+								var j=a.parentNode,F=a.nextSibling;j&&j.removeChild(a);
+								a.getAttribute=a.j;a.removeAttribute(v);a.removeAttribute(y);
+								a.removeAttribute(x);
+								j&&j.insertBefore(a,F);
+								a.src=c
+							}
+							else b.a.push(a)
+						},0)
+					};
+		
+					E[k].loadIfVisible=E[k].m;
+		
+					E[k].u=function(){
+						this.b=!0;this.d()
+					};
+
+					E[k].loadAllImages=E[k].u;
+
+					E[k].d=function(){
+						var a=this.a,b=a.length;this.a=[];
+						for(var c=0;c<b;++c)
+						this.m(a[c])
+					};
+		
+					E[k].e=function(a,b){
+						return a.a?a.a(b)!=d:a[m](b)!=d
+					};
+
+					E[k].v=function(){
+						for(var a=f.getElementsByTagName(r),b=0;b<a.length;++b){
+							var c=a[b];
+							this.e(c,y)&&this.l(c)
+						}
+					};
+		
+					E[k].overrideAttributeFunctions=E[k].v;
+
+					E[k].l=function(a){
+						var b=this;
+						this.e(a,x)||(a.j=a[m],a.getAttribute=function(a){
+							a.toLowerCase()==C&&b.e(this,y)&&(a=y);
+							return this.j(a)
+						},a.setAttribute(x,p))
+					};
+
+					D.k=function(a,b,c){
+						if(a.addEventListener)a.addEventListener(b,c,!1);
+						else 
+						if(a.attachEvent)
+						a.attachEvent(u+b,c);
+						else{
+							var j=a[u+b];
+							a[u+b]=function(){c.call(this);
+								j&&j.call(this)}}};
+								D.t=function(a,b){var c=new E(b);
+									D.lazyLoadImages=c;0!=b.indexOf(q)&&((new Image).src=b);
+									D.k(e,s,function(){c.f=!0;e.setTimeout(function(){
+										c.b=a;c.d()},200)});a||D.k(e,B,function(){
+											if(!c.c){
+												var a=c.h;(new Date).getTime()-c.g>c.h&&(a=0);
+												c.c=e.setTimeout(function(){
+													c.g=(new Date).getTime();
+													c.d();
+													c.c=d
+												},a)
+											}
+										})
+									};
+									D.lazyLoadInit=D.t;
+								})();
+
+				pagespeed.lazyLoadInit(false, "//1-ps.googleusercontent.com/h/www.gstatic.com/psa/static/1.gif");
+			</script>
+			<img id="imgLogo" class="logo" width="512" height="512" src="http://xplaces.crs4.it/images/labomclogo.png">
+		</div>
+	<script type="text/javascript" pagespeed_no_defer="">pagespeed.lazyLoadImages.overrideAttributeFunctions();</script>
+	<script type="text/javascript">
+		init2();
+		function init(){
+			if(window.DeviceMotionEvent){
+				console.log("DeviceMotionEvent supported");
+			}else if('listenForDeviceMovement'in window){
+				console.log("DeviceMotionEvent supported [listenForDeviceMovement]");
+			}
+		}
+		function init2(){
+			if((window.DeviceMotionEvent)||('listenForDeviceMovement'in window)){
+				window.addEventListener('devicemotion',deviceMotionHandler3,false);
+				document.getElementById("dmEvent").innerHTML="Handling accelerometer data."
+			}else{
+				document.getElementById("dmEvent").innerHTML="Not supported on your device or browser.  Sorry."
+			}
+		}
+		function deviceMotionHandler3(eventData){
+			var acceleration=eventData.accelerationIncludingGravity;
+			var rawAcceleration="["+Math.round(acceleration.x)+", "+Math.round(acceleration.y)+", "+Math.round(acceleration.z)+"]";
+			var facingUp=-1;
+			if(acceleration.z>0){
+				facingUp=+1;
+			}
+			var tiltLR=Math.round(((acceleration.x)/9.81)*-90);
+			var tiltFB=Math.round(((acceleration.y+9.81)/9.81)*90*facingUp);
+			document.getElementById("moAccel").innerHTML=rawAcceleration;
+			document.getElementById("moCalcTiltLR").innerHTML=tiltLR;
+			document.getElementById("moCalcTiltFB").innerHTML=tiltFB;
+			var rotation="rotate("+tiltLR+"deg) rotate3d(1,0,0, "+(tiltFB)+"deg)";
+			document.getElementById("imgLogo").style.webkitTransform=rotation
+		}
+	</script>
+	<script>
+		(function(){
+			var c=window,e="",f="&b_cdr=",k="&b_cihrl=",l="&b_cii=",n="&b_cilrl=",p="&b_ncdl=",q="&b_ncl=",r="&exptid=",s="&ft=",t="&hft=",u="&htmlAt=",v="&ifr=0",w="&ifr=1",x="&nrp=",y="&r",z="&url=",A="=",B="beforeunload",C="load",D="load:",E="on",F="unload:";
+			c.pagespeed=c.pagespeed||{};
+			var G=c.pagespeed,H=function(a,b,d,g,h,j){
+				this.f=a;
+				this.a=b;
+				this.c=d;
+				this.d=g;
+				this.b=h;
+				this.g=j;
+				this.h=e
+			};
+			G.beaconUrl=G.h;
+			H.prototype.e=function(){
+				var a=this.f,b=c.mod_pagespeed_start,d=Number(new Date)-b,a=a+(this.a==C?D:F),a=a+d+(y+this.a+A);
+				c.performance?(d=c.performance.timing,b=d.navigationStart,a+=d.loadEventStart-b):a+=d;
+				this.a==B&&c.mod_pagespeed_loaded||(a+=c.parent!=c?w:v,this.a==C&&(c.mod_pagespeed_loaded=!0,(d=c.mod_pagespeed_num_resources_prefetched)&&(a+=x+d),(d=c.mod_pagespeed_prefetch_start)&&(a+=u+(b-d))),G.panelLoader&&(b=G.panelLoader.getCsiTimings().time,a+=f+b.CRITICAL_DATA_RECEIVED+l+b.CRITICAL_IMAGES_INLINED+
+				n+b.CRITICAL_IMAGES_LOW_RES_LOADED+k+b.CRITICAL_IMAGES_HIGH_RES_LOADED+p+b.NON_CACHEABLE_DATA_LOADED+q+b.NON_CRITICAL_LOADED),this.c!=e&&(a+=t+this.c),this.d!=e&&(a+=s+this.d),this.b!=e&&(a+=r+this.b),a+=z+encodeURIComponent(this.g),G.beaconUrl=a,(new Image).src=a)
+			};
+			G.i=function(a,b,d,g,h,j){
+				var m=new H(a,b,d,g,h,j);
+				c.addEventListener?c.addEventListener(b,function(){
+					m.e()
+				},!1):c.attachEvent(E+b,function(){
+					m.e()
+				})
+			};
+			G.addInstrumentationInit=G.i;
+		})();
+
+		pagespeed.addInstrumentationInit('http://1-ps.googleusercontent.com/beacon?org=66_1_jt&ets=', 'load', '', '', '', 'http://www.html5rocks.com/en/tutorials/device/orientation/devicemotionsample.html');
+	</script>
+</body>
+</html>
